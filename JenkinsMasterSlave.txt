@@ -1,0 +1,52 @@
+SETTING UP MASTER NODE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+INSTALLING JAVA
+=============================================================
+apt install openjdk-17-jre-headless -y
+
+
+INSTALLING JENKINS
+=============================================================
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins -y
+sudo systemctl status jenkins
+
+## Access the Jenkins master VM by hitting - """http://<VM-external-ip :8080 """"".
+
+Go to Manage Jenkins ----> Click on Nodes Under SYSTEM CONFIGURATION 
+---> Click on ADD NODE
+-----> Give Details like Node name, Permanent Agent, Number of executors, Remote root directory, Labels, Usage, Launch method ( Select Launch Agents via SSH, Host {Provide Agent IP Address}, Add Credentials {Copy pem file content under key}) Host Key Verification Strategy (Select Non Verifying Verification Strategy) And SAVE.
+
+SETTING UP MASTER NODE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+INSTALLING JAVA
+=============================================================
+apt install openjdk-17-jre-headless -y
+
+#Installing Java in Node Machine is Enough
+
+
+Sample Pipeline
+-----------------------
+
+pipeline {
+    agent { label 'Agent' }
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
+
+
+
