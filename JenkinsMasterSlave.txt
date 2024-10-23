@@ -23,6 +23,7 @@ Go to Manage Jenkins ----> Click on Nodes Under SYSTEM CONFIGURATION
 ---> Click on ADD NODE
 -----> Give Details like Node name, Permanent Agent, Number of executors, Remote root directory, Labels, Usage, Launch method ( Select Launch Agents via SSH, Host {Provide Agent IP Address}, Add Credentials {Copy pem file content under key}) Host Key Verification Strategy (Select Non Verifying Verification Strategy) And SAVE.
 
+
 SETTING UP SLAVE/AGENT NODE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
